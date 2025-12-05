@@ -28,15 +28,32 @@ Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and a
 /* write all the steps invloved */
 
 **PROGRAM**
+module shift_register_3bit (
+    input  wire clk,     // clock input
+    input  wire rst,     // synchronous reset
+    input  wire serial_in, // serial data input
+    output reg  [2:0] q   // 3-bit register output
+);
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming.
+always @(posedge clk) begin
+    if (rst)
+        q <= 3'b000;          // reset all bits
+    else
+        q <= {q[1:0], serial_in}; // shift left
+end
 
-Developed by: RegisterNumber:
+endmodule
 
-*/
+
+
+Developed by:Madhumitha V
+RegisterNumber:25016067
 
 **RTL LOGIC FOR SISO Shift Register**
+<img width="1919" height="1079" alt="Screenshot 2025-12-05 230503" src="https://github.com/user-attachments/assets/29cc3af6-7738-424f-a48c-956e2ce9c224" />
 
 **TIMING DIGRAMS FOR SISO Shift Register**
+<img width="1919" height="1079" alt="Screenshot 2025-12-06 001904" src="https://github.com/user-attachments/assets/73bb0116-87e9-4711-9331-d7c4fd63e704" />
 
 **RESULTS**
+The implement of SISO Shift Register using verilog and validating their functionality using their functional tables.
