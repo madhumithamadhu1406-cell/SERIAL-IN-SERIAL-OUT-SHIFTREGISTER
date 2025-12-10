@@ -24,8 +24,15 @@ The synchronous nature of the flip-flops ensures that the shifting of data occur
 Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and an output (Q). The D input represents the data to be loaded into the flip-flop, while the CLK input is connected to the common clock signal. The output (Q) of each flip-flop is connected to the D input of the next flip-flop, forming a cascade.
 
 **Procedure**
+1.Declare clk, sin, q (register).
 
-/* write all the steps invloved */
+2.Use always @(posedge clk).
+
+3.Shift right: q <= {q[n-2:0], sin}.
+
+4.Output serial bit from MSB or LSB.
+
+5.End module.
 
 **PROGRAM**
 module shift_register_3bit (
@@ -56,4 +63,4 @@ RegisterNumber:25016067
 <img width="1919" height="1079" alt="Screenshot 2025-12-06 001904" src="https://github.com/user-attachments/assets/73bb0116-87e9-4711-9331-d7c4fd63e704" />
 
 **RESULTS**
-The implement of SISO Shift Register using verilog and validating their functionality using their functional tables.
+The implement of SISO Shift Register using verilog and validating their functionality using their functional tables is verified.
